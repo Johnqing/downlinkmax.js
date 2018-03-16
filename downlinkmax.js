@@ -29,14 +29,14 @@ export default function downlinkmax() {
 			img = img.onload = img.onerror = null;
 
 			const size = 54.4 / (endtime - starttime) / 1000;
-			const arr = [];
+			let type = 'gprs';
 			for(let key in list){
 				if(size >= list[key]){
-					arr.push(key);
+					type = key;
 				}
 			}
 
-			resolve(arr.pop());
+			resolve(type);
 		};
 
 		img.onerror = function () {
